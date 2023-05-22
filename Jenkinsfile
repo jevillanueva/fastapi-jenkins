@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'docker run ${NAME_IMAGE} python -m unittest -t test_main.py'
+                sh 'docker run ${NAME_IMAGE} python test.py'
             }
         }
         stage('Push') {
