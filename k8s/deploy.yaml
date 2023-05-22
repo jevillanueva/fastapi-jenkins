@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fastapi-jenkins
+  name: fastapi-jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-jenkins
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: fastapi-jenkins
+    spec:
+      containers:
+      - image: jevillanueva/fastapi-jenkins
+        name: fastapi-jenkins
+        ports:
+        - containerPort: 8000
+          name: http
+        resources: {}
+status: {}

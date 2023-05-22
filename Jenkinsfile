@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         NAME_IMAGE = 'jevillanueva/fastapi-jenkins'
+        K8S = 'a.k8.jevillanueva.dev'
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
     stages {
@@ -28,6 +29,19 @@ pipeline {
         stage('Push') {
             steps {
                 sh 'docker push ${NAME_IMAGE}'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sshagent(credentials: ['kubernetes']) {
+                    sh '''
+                    [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
+                    ssh-keyscan -t rsa,dsa ${K8S} >> ~/.ssh/known_hosts
+                    ssh ubuntu@${K8S} mkdir -p jenkins/${NAME_IMAGE}
+                    scp -r * ubuntu@${K8S}:jenkins/${NAME_IMAGE}
+                    ssh ubuntu@${K8S} kubectl apply -f jenkins/${NAME_IMAGE}/deploy.yaml jenkins/${NAME_IMAGE}/service.yaml
+                    '''
+                }
             }
         }
     }

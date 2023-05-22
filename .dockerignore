@@ -12,3 +12,4 @@ venv
 k8s
 *.sqlite3
 Jenkinsfile
+k8s
