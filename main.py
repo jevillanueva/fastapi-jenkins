@@ -26,7 +26,7 @@ def increment_count(endpoint):
 
 @app.get("/")
 async def root():
-    return {"message": "¡Hola! ingresa a /docs para ver la documentación. :D"}
+    return {"message": "¡Hola! ingresa a /docs para ver la documentación."}
 
 # Ruta de ejemplo
 @app.get("/example")
