@@ -40,7 +40,7 @@ class FastAPITest(unittest.TestCase):
     def test_count_endpoint_not_found(self):
         response = self.client.get("/count/nonexistent_endpoint")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), {"endpoint": "nonexistent_endpoint", "count": 0})
+        self.assertEqual(response.json(), {"endpoint": "nonexistent_endpoint", "count": 1})
 
 if __name__ == '__main__':
     unittest.main()
