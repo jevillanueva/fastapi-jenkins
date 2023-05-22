@@ -39,6 +39,7 @@ pipeline {
                     ssh-keyscan -t rsa,dsa ${K8S} >> ~/.ssh/known_hosts
                     ssh ubuntu@${K8S} mkdir -p jenkins/${NAME_IMAGE}
                     scp -rp k8s/* ubuntu@${K8S}:jenkins/${NAME_IMAGE}
+                    ssh ubuntu@${K8S} kubectl delete -f jenkins/${NAME_IMAGE}/deploy.yaml
                     ssh ubuntu@${K8S} kubectl apply -f jenkins/${NAME_IMAGE}/deploy.yaml
                     ssh ubuntu@${K8S} kubectl apply -f jenkins/${NAME_IMAGE}/service.yaml
                     '''
