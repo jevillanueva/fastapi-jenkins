@@ -1,0 +1,14 @@
+Dockerfile
+.dockerignore
+.git
+.github
+.vscode
+.*ignore
+*.md
+docker-compose*.yaml
+.env
+.env.production
+venv
+k8s
+*.sqlite3
+Jenkinsfile
