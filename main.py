@@ -35,7 +35,7 @@ async def example():
     return {"message": "¡Hola! Has accedido al endpoint /example."}
 
 @app.get("/new")
-async def example():
+async def new():
     increment_count("new")
     return {"message": "¡Hola! Has accedido al endpoint /new."}
 
