@@ -34,6 +34,11 @@ async def example():
     increment_count("example")
     return {"message": "¡Hola! Has accedido al endpoint /example."}
 
+@app.get("/new")
+async def example():
+    increment_count("new")
+    return {"message": "¡Hola! Has accedido al endpoint /new."}
+
 # Ruta para obtener el contador de un endpoint
 @app.get("/count/{endpoint}")
 async def count(endpoint: str):
