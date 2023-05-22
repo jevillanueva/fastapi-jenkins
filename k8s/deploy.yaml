@@ -18,6 +18,7 @@ spec:
       containers:
       - image: jevillanueva/fastapi-jenkins
         name: fastapi-jenkins
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
           name: http
