@@ -24,6 +24,10 @@ def increment_count(endpoint):
     conn.commit()
     conn.close()
 
+@app.get("/")
+async def root():
+    return {"message": "¡Hola! ingresa a /docs para ver la documentación."}
+
 # Ruta de ejemplo
 @app.get("/example")
 async def example():
