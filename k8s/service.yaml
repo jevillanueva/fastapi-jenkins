@@ -4,6 +4,7 @@ metadata:
   labels:
     app: fastapi-jenkins
   name: fastapi-jenkins
+  namespace: fastapi-jenkins
 spec:
   ports:
   - port: 8000
@@ -18,9 +19,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fastapi-jenkins
+  namespace: fastapi-jenkins
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   tls:
   - hosts:
