@@ -24,10 +24,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - api.k8.jevillanueva.dev
-    secretName: fastapi-jenkins-tls
+    - api2.k8.jevillanueva.dev
+    secretName: fastapi2-jenkins-tls
   rules:
-  - host: api.k8.jevillanueva.dev
+  - host: api2.k8.jevillanueva.dev
     http:
       paths:
       - path: /
