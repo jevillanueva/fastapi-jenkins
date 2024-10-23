@@ -4,6 +4,7 @@ metadata:
   labels:
     app: fastapi-jenkins
   name: fastapi-jenkins
+  namespace: fastapi-jenkins
 spec:
   replicas: 1
   selector:
